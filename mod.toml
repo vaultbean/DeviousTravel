@@ -1,0 +1,6 @@
+# modtool settings for DeviousTravel. Paths are relative to this folder.
+# The settings are explained in the workspace's modtool.toml, one folder up.
+version = "0.1.0"  # review: not installed through Vortex, so unknown
+names = ["DeviousTravel"]
+plugins = ["Devious Travel.esp"]
+watch = ["dtv_*"]

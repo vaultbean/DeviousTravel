@@ -1,0 +1,6 @@
+{
+    "C_Cpp.default.compileCommands": "${workspaceFolder}/.vscode/compile_commands.json",
+    "C_Cpp.default.configurationProvider": "",
+    "cmake.configureOnOpen": false,
+    "cmake.ignoreCMakeListsMissing": true
+}

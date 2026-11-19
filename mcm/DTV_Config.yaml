@@ -1,0 +1,179 @@
+script: DTV_Config
+mod_name: "Devious Travel"
+
+pages:
+  - name: "General"
+    sections:
+      - title: "Map Travel"
+        options:
+          - type: slider
+            label: "Minimum Chance"
+            help: "Chance of an intercept on a map fast travel with no hostile camps near the route."
+            global: DTV_MinChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 5
+          - type: slider
+            label: "Maximum Chance"
+            help: "Highest chance of an intercept on a map fast travel, however dangerous the route. 0 disables map intercepts."
+            global: DTV_MaxChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 75
+
+      - title: "Carriage Travel"
+        column: right
+        options:
+          - type: slider
+            label: "Minimum Chance"
+            help: "Chance of an intercept on a carriage ride with no hostile camps near the route."
+            global: DTV_MinCarriageChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 5
+          - type: slider
+            label: "Maximum Chance"
+            help: "Highest chance of an intercept on a carriage ride, however dangerous the route. 0 disables carriage intercepts."
+            global: DTV_MaxCarriageChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 75
+          - type: slider
+            label: "Paranoid Driver Chance"
+            help: "Chance a driver will require you to hand over weapons and armor before giving you a ride."
+            global: DTV_ParanoidDriverChance
+            min: 0
+            max: 100
+            format: "{0}"
+            default: 30
+          - type: slider
+            label: "Neglectful Driver Chance"
+            help: "Chance a driver will forget to return your items and remove your restraints after dropping you off."
+            property: DTV_Carriage.NeglectfulDriverChance
+            min: 0
+            max: 100
+            format: "{0}"
+            default: 30
+          - type: slider
+            label: "Restrain Chance"
+            help: "Chance a paranoid driver will restrain you prior to entering their carriage."
+            property: DTV_Carriage.RestrainChance
+            min: 0
+            max: 100
+            format: "{0}"
+            default: 30 
+          - type: slider
+            label: "Take All Items Chance"
+            help: "Chance a paranoid driver will require you to hand over all items."
+            property: DTV_Carriage.TakeAllItemsChance
+            min: 0
+            max: 100
+            format: "{0}"
+            default: 30 
+  - name: "Content"
+    sections:
+      - title: "Bandit Ambush"
+        options:
+          - type: slider
+            label: "Robbery Chance"
+            help: "Chance of being robbed during a bandit ambush."
+            property: DTV_Event_BanditAmbush.RobChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 100
+          - type: slider
+            label: "Strip Chance"
+            help: "Chance of being stripped during a bandit ambush."
+            property: DTV_Event_BanditAmbush.StripChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 50
+          - type: slider
+            label: "Sex Chance"
+            help: "Chance of being assaulted during a bandit ambush."
+            property: DTV_Event_BanditAmbush.SexChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 50
+          - type: slider
+            label: "Restrain Chance"
+            help: "Chance of being restrained during a bandit ambush."
+            property: DTV_Event_BanditAmbush.RestrainChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 10
+          - type: slider
+            label: "Enslave Chance"
+            help: "Chance of being sent to SS++ during a bandit ambush."
+            property: DTV_Event_BanditAmbush.EnslaveChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 10
+          - type: slider
+            label: "Capture Chance"
+            help: "Chance of being captured via Radiant Captivity during a bandit ambush."
+            property: DTV_Event_BanditAmbush.CaptureChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 10
+      - title: "Forsworn Ambush"
+        column: right
+        options:
+          - type: slider
+            label: "Robbery Chance"
+            help: "Chance of being robbed during a forsworn ambush."
+            property: DTV_Event_ForswornAmbush.RobChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 100
+          - type: slider
+            label: "Strip Chance"
+            help: "Chance of being stripped during a forsworn ambush."
+            property: DTV_Event_ForswornAmbush.StripChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 50
+          - type: slider
+            label: "Sex Chance"
+            help: "Chance of being assaulted during a forsworn ambush."
+            property: DTV_Event_ForswornAmbush.SexChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 50
+          - type: slider
+            label: "Restrain Chance"
+            help: "Chance of being restrained during a forsworn ambush."
+            property: DTV_Event_ForswornAmbush.RestrainChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 10
+          - type: slider
+            label: "Enslave Chance"
+            help: "Chance of being sent to SS++ during a forsworn ambush."
+            property: DTV_Event_ForswornAmbush.EnslaveChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 10
+          - type: slider
+            label: "Capture Chance"
+            help: "Chance of being captured via Radiant Captivity during a forsworn ambush."
+            property: DTV_Event_ForswornAmbush.CaptureChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 10

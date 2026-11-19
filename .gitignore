@@ -1,0 +1,8 @@
+.xmake/
+build/
+vsxmake*/
+.vs/
+*.user
+compile_commands.json
+patcher/bin/
+patcher/obj/

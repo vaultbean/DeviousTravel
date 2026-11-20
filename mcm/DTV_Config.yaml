@@ -2,29 +2,9 @@ script: DTV_Config
 mod_name: "Devious Travel"
 
 pages:
-  - name: "General"
+  - name: "Travel"
     sections:
-      - title: "Map Travel"
-        options:
-          - type: slider
-            label: "Minimum Chance"
-            help: "Chance of an intercept on a map fast travel with no hostile camps near the route."
-            global: DTV_MinChance
-            min: 0
-            max: 100
-            format: "{0}%"
-            default: 5
-          - type: slider
-            label: "Maximum Chance"
-            help: "Highest chance of an intercept on a map fast travel, however dangerous the route. 0 disables map intercepts."
-            global: DTV_MaxChance
-            min: 0
-            max: 100
-            format: "{0}%"
-            default: 75
-
       - title: "Carriage Travel"
-        column: right
         options:
           - type: slider
             label: "Minimum Chance"
@@ -68,14 +48,74 @@ pages:
             default: 30 
           - type: slider
             label: "Take All Items Chance"
-            help: "Chance a paranoid driver will require you to hand over all items."
+            help: "Chance a paranoid driver will require you to hand over everything in your inventory (except gold)."
             property: DTV_Carriage.TakeAllItemsChance
             min: 0
             max: 100
             format: "{0}"
-            default: 30 
+            default: 30
+      - title: "Map Travel"
+        column: right
+        options:
+          - type: slider
+            label: "Minimum Chance"
+            help: "Chance of an intercept on a map fast travel with no hostile camps near the route."
+            global: DTV_MinChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 5
+          - type: slider
+            label: "Maximum Chance"
+            help: "Highest chance of an intercept on a map fast travel, however dangerous the route. 0 disables map intercepts."
+            global: DTV_MaxChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 75
+
+  
+  - name: "Intercepts"
+    sections:
+      - options:
+        - type: menu
+          id: CurrentPack
+          label: "Current Pack"
+          options:
+            each: 'Adversity.GetPacks("devioustravel")'
+            label: "{Adversity.GetPackName(item)}"
+          property: CurrPackIndex
+          default: 0
+          reset_page: true           # redraws the page after the pack changes
+        - type: header
+          label: ""
+      - column: right
+        options:
+          - type: empty
+          - type: header
+            label: ""
+      - column: both               # one status button per event, filling both columns
+        options:
+        - type: text
+          id: InterceptStatus
+          each: 'Adversity.FilterEventsByTags(Adversity.GetPackEvents(Adversity.GetPacks("devioustravel")[CurrPackIndex]), Utility.CreateStringArray(1, "type:intercept"))'
+          label: "{Adversity.GetEventName(item)}"
+          help: "{Adversity.GetEventDesc(item)}"
+          # Shows the event's status; a click switches it between Disabled (0) and Enabled (1).
+          get: Adversity.GetEventStatus({item})
+          values: [Disabled, Enabled, Reserved, Selected, Paused, Active]
+          on_select: 'Adversity.SetEventStatus({item}, (Adversity.GetEventStatus({item}) == 0) as int)'
+          enable_if: Adversity.GetEventStatus({item}) < 2   # locked while reserved, selected, paused or active
+
   - name: "Content"
     sections:
+      - title: "All"
+        options:
+        - type: keymap
+          label: "Stop Crawling Hotkey"
+          help: "Key that stops crawling"
+          property: StopCrawlingKey
+          default: 38 # L
       - title: "Bandit Ambush"
         options:
           - type: slider
@@ -106,6 +146,14 @@ pages:
             label: "Restrain Chance"
             help: "Chance of being restrained during a bandit ambush."
             property: DTV_Event_BanditAmbush.RestrainChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 10
+          - type: slider
+            label: "Drag Away Chance"
+            help: "Chance of being dragged away after being knocked out during a bandit ambush."
+            property: DTV_Event_BanditAmbush.DragAwayChance
             min: 0
             max: 100
             format: "{0}%"
@@ -153,6 +201,14 @@ pages:
             max: 100
             format: "{0}%"
             default: 50
+          - type: slider
+            label: "Drag Away Chance"
+            help: "Chance of being dragged away after being knocked out during a forsworn ambush."
+            property: DTV_Event_ForswornAmbush.DragAwayChance
+            min: 0
+            max: 100
+            format: "{0}%"
+            default: 10
           - type: slider
             label: "Restrain Chance"
             help: "Chance of being restrained during a forsworn ambush."

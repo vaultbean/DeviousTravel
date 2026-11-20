@@ -8,7 +8,7 @@ namespace
 	constexpr RE::FormID kWIEventsEnabled = 0x035D66;
 	constexpr RE::FormID kCarriageSystemFaction = 0x017F04;
 	constexpr RE::FormID kJobCarriageFaction = 0x0DDDA8;
-	constexpr RE::FormID kMainQuestLocalID = 0x005900;
+	constexpr RE::FormID kMainQuestLocalID = 0x001;
 	constexpr std::string_view kPluginName = "Devious Travel.esp"sv;
 	constexpr float kDriverSearchRadius = 2048.0f;
 	constexpr float kDangerScale = 0.5f;

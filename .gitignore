@@ -6,3 +6,5 @@ vsxmake*/
 compile_commands.json
 patcher/bin/
 patcher/obj/
+releases/
+screenshots/

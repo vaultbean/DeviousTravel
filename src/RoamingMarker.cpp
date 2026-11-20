@@ -2,7 +2,7 @@
 
 namespace
 {
-	constexpr RE::FormID kMarkerLocalID = 0x0290AF;
+	constexpr RE::FormID kMarkerLocalID = 0x05A;
 	constexpr std::string_view kPluginName = "Devious Travel.esp"sv;
 	constexpr RE::FormID kTamriel = 0x3C;
 	constexpr RE::FormID kTamrielAnchor = 0x01624A;
